@@ -11,13 +11,15 @@
 <body>
     <div class="container">
         <div class="logo">
-            <img src="/public/img/logo.png">
+            <img src="/public/img/logo_white.svg">
         </div>
-        <form>
-            <input name="email" type="text" placeholder="your@email.com">
-            <input name="password" type="password" placeholder="your@email.com">
-            <button>Login</button>
-        </form>
+        <div class="login-container">
+            <form>
+                <input name="email" type="text" placeholder="your@email.com">
+                <input name="password" type="password" placeholder="tu wpisz swoje hasło">
+                <button>Login</button>
+            </form>
+        </div>
     </div>
 </body>
 
