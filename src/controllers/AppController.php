@@ -2,9 +2,9 @@
 
 class AppController {
 
-    protected function render(string $templateName = null) {
+    protected function render(string $templateName = null, array $variables = []) {
 
-        $templatePath = 'public/views/'.$templateName.'.html';
+        $templatePath = 'public/views/'.$templateName.'.php';
 
         if (file_exists($templatePath)) {
             ob_start();
