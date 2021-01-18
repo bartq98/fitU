@@ -7,13 +7,6 @@ class Exercise
     private $name;
     private $muscle;
 
-    public function __construct($id, $name, $muscle)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->muscle = $muscle;
-    }
-
     public function getId()
     {
         return $this->id;

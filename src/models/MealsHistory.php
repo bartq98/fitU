@@ -9,15 +9,6 @@ class MealsHistory
     private $eated_at;
     private $portions;
 
-    public function __construct($id, $id_user, $id_meal, $eated_at, $portions)
-    {
-        $this->id = $id;
-        $this->id_user = $id_user;
-        $this->id_meal = $id_meal;
-        $this->eated_at = $eated_at;
-        $this->portions = $portions;
-    }
-
     public function getId()
     {
         return $this->id;

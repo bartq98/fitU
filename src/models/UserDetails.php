@@ -8,14 +8,6 @@ class UserDetails
     private $surname;
     private $calorie_intake;
 
-    public function __construct($id, $name, $surname, $calorie_intake)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->calorie_intake = $calorie_intake;
-    }
-
     public function getId()
     {
         return $this->id;

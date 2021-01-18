@@ -9,15 +9,6 @@ class BodyweightHistory
     private $measured_at;
     private $last_change;
 
-    public function __construct($id, $id_user, $weight, $measured_at, $last_change)
-    {
-        $this->id = $id;
-        $this->id_user = $id_user;
-        $this->weight = $weight;
-        $this->measured_at = $measured_at;
-        $this->last_change = $last_change;
-    }
-
     public function getId()
     {
         return $this->id;

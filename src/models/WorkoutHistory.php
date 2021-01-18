@@ -10,16 +10,6 @@ class WorkoutHistory
     private $weight;
     private $done_at;
 
-    public function __construct($id, $id_user, $id_exercise, $reps, $weight, $done_at)
-    {
-        $this->id = $id;
-        $this->id_user = $id_user;
-        $this->id_exercise = $id_exercise;
-        $this->reps = $reps;
-        $this->weight = $weight;
-        $this->done_at = $done_at;
-    }
-
     public function getId()
     {
         return $this->id;

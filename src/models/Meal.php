@@ -11,17 +11,6 @@ class Meal
     private $allergens;
     private $portion_size;
 
-    public function __construct($id, $name, $carbohydrate, $fat, $protein, $allergens, $portion_size)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->carbohydrate = $carbohydrate;
-        $this->fat = $fat;
-        $this->protein = $protein;
-        $this->allergens = $allergens;
-        $this->portion_size = $portion_size;
-    }
-
     public function getId()
     {
         return $this->id;

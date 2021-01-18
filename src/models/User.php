@@ -9,16 +9,6 @@ class User {
     private $created_at;
     private $id_user_details;
 
-    public function __construct($id, $email, $password, $enabled, $created_at, $id_user_details)
-    {
-        $this->id = $id;
-        $this->email = $email;
-        $this->password = $password;
-        $this->enabled = $enabled;
-        $this->created_at = $created_at;
-        $this->id_user_details = $id_user_details;
-    }
-
     public function getId()
     {
         return $this->id;
