@@ -1,25 +1,30 @@
 <?
 
 class User {
+
+    private $id;
     private $email;
     private $password;
-    private $name;
-    private $surname;
+    private $enabled;
+    private $created_at;
+    private $id_user_details;
 
-    public function __construct(string $email, string $password, string $name, string $surname)
+    public function getId()
     {
-        $this->email = $email;
-        $this->password = $password;
-        $this->name = $name;
-        $this->surname = $surname;
+        return $this->id;
     }
 
-    public function getEmail(): string
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(string $email)
+    public function setEmail($email): void
     {
         $this->email = $email;
     }
@@ -29,29 +34,39 @@ class User {
         return $this->password;
     }
 
-    public function setPassword($password)
+    public function setPassword($password): void
     {
         $this->password = $password;
     }
 
-    public function getName(): string
+    public function getEnabled()
     {
-        return $this->name;
+        return $this->enabled;
     }
 
-    public function setName(string $name)
+    public function setEnabled($enabled): void
     {
-        $this->name = $name;
+        $this->enabled = $enabled;
     }
 
-    public function getSurname(): string
+    public function getCreatedAt()
     {
-        return $this->surname;
+        return $this->created_at;
     }
 
-    public function setSurname(string $surname)
+    public function setCreatedAt($created_at): void
     {
-        $this->surname = $surname;
+        $this->created_at = $created_at;
+    }
+
+    public function getIdUserDetails()
+    {
+        return $this->id_user_details;
+    }
+
+    public function setIdUserDetails($id_user_details): void
+    {
+        $this->id_user_details = $id_user_details;
     }
 
 }
