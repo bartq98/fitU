@@ -10,6 +10,5 @@ class Repository
     {
         $this->database = new Database();
     }
-
-
+    
 }

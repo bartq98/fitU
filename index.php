@@ -9,6 +9,7 @@ $path = parse_url($path, PHP_URL_PATH);
 Routing::get('', 'DefaultController');
 Routing::get('projects', 'DefaultController');
 Routing::post('login', 'SecurityController');
+Routing::post('workout', 'DefaultController');
 
 Routing::run($path);
 

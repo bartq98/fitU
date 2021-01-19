@@ -16,17 +16,8 @@ class UserRepository extends Repository
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC); // dict for values to create User
+        $user = $stmt->fetchObject(User::class);
+        return $user;
 
-        if ($user == false) {
-            return null;
-        }
-
-        return new User(
-          $user['email'],
-          $user['password'],
-          $user['name'],
-          $user['surname']
-        );
     }
 }
