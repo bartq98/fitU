@@ -1,15 +1,6 @@
 <?
 
-require 'Routing.php';
+require __DIR__.'/src/models/App.php';
 
-$path = trim($_SERVER['REQUEST_URI'], '/');
-$path = parse_url($path, PHP_URL_PATH);
-
-//Routing::get('index', 'DefaultController');
-Routing::get('', 'DefaultController');
-Routing::get('projects', 'DefaultController');
-Routing::post('login', 'SecurityController');
-Routing::post('workout', 'DefaultController');
-
-Routing::run($path);
+App::run();
 
