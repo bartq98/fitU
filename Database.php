@@ -13,7 +13,7 @@ class Database
     {
         $this->username = USERNAME;
         $this->password = PASSWORD;
-        $this->host = HOST;
+        $this->host     = HOST;
         $this->database = DATABASE;
     }
 

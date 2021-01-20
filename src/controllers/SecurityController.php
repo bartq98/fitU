@@ -11,10 +11,6 @@ class SecurityController extends AppController {
 
         $userRepository = new UserRepository();
 
-        if (!$this->isPost()) {
-            return $this->login('login');
-        }
-
         $email = $_POST["email"];
         $password = $_POST["password"];
 
@@ -38,6 +34,11 @@ class SecurityController extends AppController {
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/workout");
 
+    }
+
+    public function loginPanel()
+    {
+        return $this->render('login');
     }
 
 }

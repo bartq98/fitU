@@ -5,54 +5,54 @@ require_once 'src/controllers/SecurityController.php';
 
 require_once 'Route.php';
 require_once 'RoutesCollector.php';
-require_once 'route_table.php';
 
 
 class Routing {
 
-    public static $routes;
+    private RoutesCollector $routes;
+
+    public function __construct()
+    {
+        $this->routes = new RoutesCollector();
+    }
 
     private function scanControllers() {
-        foreach (scandir(dirname(__FILE__)) as $filename) {
-            $path = dirname(__FILE__) . '/../controllers' . $filename;
+        foreach (scandir(__DIR__."/../controllers") as $filename) {
+            $path = __DIR__.'/../controllers'.$filename;
             if (is_file($path)) {
+                echo "Found".$path;
                 require $path;
             }
         }
     }
 
-
-    public static function addRoute($url, $controller, $action, $method, $userRole)
+    public function addRoute($url, $controller, $action, $method, $userRole)
     {
         $route = new Route($url, $controller, $action, $method, $userRole);
-        self::$routes->addRoute($route);
+        $this->routes->addRoute($route);
     }
 
 
-    public static function run($url, $isUserAuth) {
+    public function run($url, $isUserAuth) {
 
         $action = explode("/", $url)[0];
 
         self::scanControllers(); // automatically updates if there is any controller
-
-        foreach (self::$routes as $route) {
-            if ($route->getUrl() == $action and $route->getMethod() == $_SERVER['REQUEST_METHOD'] and $route->getUserRole() == $isUserAuth) {
+        self::addRoute('', 'SecurityController', 'loginPanel', 'GET', '');
+        self::addRoute('login', 'SecurityController', 'loginPanel', 'GET', '');
+        self::addRoute('login', 'SecurityController', 'login', 'POST', '');
+        foreach ($this->routes as $route) {
+            if ($route->getUrl() == $action and $route->getMethod() == $_SERVER['REQUEST_METHOD']) {
 
                 $controller = $route->getController();
-                $object = new $controller(explode("/", $url));
-                $action = $route->getAction() ?: 'index';
-
+                $object = new $controller;
+                $action = $route->getAction() ?: 'login';
                 $object->$action();
                 return;
             }
         }
         die("Wrong URL");
 
-    }
-
-    public static function initialize($coll) {
-        self::$routes = $coll;
-        require 'route_table.php';
     }
 
 }

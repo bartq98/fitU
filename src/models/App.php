@@ -21,14 +21,14 @@ class App
 
         $path = trim($_SERVER['REQUEST_URI'], '/');
         $path = parse_url($path, PHP_URL_PATH);
-        Routing::initialize(new RoutesCollector());
-        Routing::run($path, self::isCurrentUserAuth());
+        $routing = new Routing();
+        $routing->run($path, self::isCurrentUserAuth());
 
     }
 
     private static function isCurrentUserAuth() : bool
     {
-        if (Guard::getId()) {
+        if (Guard::isAuth()) {
             return true;
         } else {
             return false;

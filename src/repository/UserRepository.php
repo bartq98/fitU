@@ -17,6 +17,7 @@ class UserRepository extends Repository
         $stmt->execute();
 
         $user = $stmt->fetchObject(User::class);
+
         return $user;
 
     }

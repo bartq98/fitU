@@ -13,7 +13,7 @@ class RoutesCollector implements IteratorAggregate
 
     public function addRoute($route)
     {
-        $this->collection = $route;
+        $this->collection[] = $route;
     }
 
 }
