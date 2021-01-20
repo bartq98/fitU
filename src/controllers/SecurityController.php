@@ -9,6 +9,11 @@ class SecurityController extends AppController {
 
     public function login() {
 
+        if (Guard::isAuth()) {
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/workout");
+        }
+
         $userRepository = new UserRepository();
 
         $email = $_POST["email"];
@@ -38,6 +43,10 @@ class SecurityController extends AppController {
 
     public function loginPanel()
     {
+        if (Guard::isAuth()) {
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/workout");
+        }
         return $this->render('login');
     }
 
