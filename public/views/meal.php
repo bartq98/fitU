@@ -14,37 +14,43 @@
         <header>
             <img src="/public/img/logo_white.svg">
             <div>
-                <a href="aaa">Logout</a>
-                <a href="aaa">Dane osob</a>
+                <div class="headerbutton">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </div>
+                <div class="headerbutton">
+                    <i class="fas fa-user-alt"></i>
+                    Dane osob
+                </div>
             </div>
         </header>
         <nav>
 
             <div class="navbutton">
-                <i class="fas fa-utensils"></i>
+                <i class="fas fa-utensils fa-2x"></i>
                 Dodaj posiłek
             </div>
 
 
             <div class="navbutton">
-                <i class="fas fa-cookie-bite"></i>
+                <i class="fas fa-cookie-bite fa-2x"></i>
                 Historia posiłków
             </div>
 
 
             <div class="navbutton">
-                <i class="fas fa-dumbbell"></i>
+                <i class="fas fa-dumbbell fa-2x"></i>
                 Dodaj trening
             </div>
 
             <div class="navbutton">
-                <i class="fas fa-running"></i>
-                <a href="aaa">Historia treningów</a>
+                <i class="fas fa-running fa-2x"></i>
+                Historia treningów
             </div>
 
             <div class="navbutton">
-                <i class="fas fa-weight"></i>
-                <a href="aaa">Waga</a>
+                <i class="fas fa-weight fa-2x"></i>
+                Waga
             </div>
 
         </nav>
