@@ -11,15 +11,18 @@
     grid-template-areas:
         "header header"
         "nav main";
-    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    background: linear-gradient(90deg, #5cbdff 0%, #3384fe 100%);
 }
 
 header {
     grid-area: header;
-    background: rgb(2,0,36);
-    background: linear-gradient(329deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 4%, rgba(9,9,121,1) 9%, rgba(0,212,255,1) 100%);
+    background-color: #5cbdff;
+    /* background: rgb(2,0,36); */
+    /* background: linear-gradient(329deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 4%, rgba(9,9,121,1) 9%, rgba(0,212,255,1) 100%); */
     display: flex;
     color: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .6);
+    z-index: 1;
 }
 
 header img {
@@ -31,11 +34,11 @@ header>div {
     flex-direction: row;
     flex-grow: 1;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
+    padding: 1em;
 }
 
 .headerbutton {
-    border: 2px solid red;
     padding: 1em;
     display: flex;
     flex-direction: row;
@@ -43,9 +46,15 @@ header>div {
     align-items: center;
     font-size: 1.3em;
     border-radius: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-left: 1em;
     width: 20%;
+}
+
+.headerbutton:hover {
+    background-color: #3384FE;
+    color: #C9f7ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .6);
+    transition: all 250ms ease-in-out;
 }
 
 nav {
@@ -53,10 +62,11 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background-color: #5cbdff;
+    z-index: 1;
 }
 
 .navbutton {
-    border: 2px solid red;
     padding: 1em;
     display: flex;
     flex-direction: row;
@@ -66,16 +76,20 @@ nav {
     border-radius: 1em;
     margin-left: 0.5em;
     margin-right: 0.5em;
+    overflow: hidden;
 }
 
 .navbutton:hover {
-    background: rgb(2,0,36);
-    background: linear-gradient(329deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 4%, rgba(9,9,121,1) 9%, rgba(0,212,255,1) 100%);
-    color: wheat;
+    background-color: #3384FE;
+    color: #C9f7ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .6);
     transition: all 250ms ease-in-out;
 }
 
 main {
+    /* background: linear-gradient(90deg, #5cbdff 0%, #3384fe 100%); */
+    padding: 2em;
+    background: linear-gradient(90deg, #5cbdff 0%, #C9f7ff 100%);
     grid-area: main;
 }
 
