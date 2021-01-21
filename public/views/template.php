@@ -14,7 +14,7 @@
     <?php include("view_components/header.php"); ?>
     <?php include("view_components/nav.php"); ?>
     <main>
-        <div style="background-color: red">as</div>
+        <div style="background-color: red"></div>
     </main>
 </div>
 </body>

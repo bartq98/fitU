@@ -7,9 +7,8 @@ class MealController extends AppController
 
     public function meals()
     {
+
         $this->render('meal', ["message" => "Meals"]);
-
-
     }
 
 
