@@ -8,6 +8,7 @@ class User {
     private $enabled;
     private $created_at;
     private $id_user_details;
+    private $role;
 
     public function getId()
     {
@@ -67,6 +68,16 @@ class User {
     public function setIdUserDetails($id_user_details): void
     {
         $this->id_user_details = $id_user_details;
+    }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function setRole($role): void
+    {
+        $this->role = $role;
     }
 
 }

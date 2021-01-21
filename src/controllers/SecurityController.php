@@ -34,10 +34,10 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ["Invalid password."]]);
         }
 
-        Guard::auth($user->getId());
+        Guard::auth($user->getId(), $user->getRole());
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/workout");
+        header("Location: {$url}/meals");
 
     }
 
@@ -45,7 +45,7 @@ class SecurityController extends AppController {
     {
         if (Guard::isAuth()) {
             $url = "http://$_SERVER[HTTP_HOST]";
-            header("Location: {$url}/workout");
+            header("Location: {$url}/meals");
         }
         return $this->render('login');
     }

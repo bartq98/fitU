@@ -20,7 +20,6 @@
                         foreach ($messages as $message) {
                             echo $message;
                         }
-
                     }
                     ?>
                 </div>
