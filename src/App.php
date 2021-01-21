@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__.'/../security/Guard.php';
-require_once __DIR__.'/../routing/Routing.php';
+require_once __DIR__ . '/security/Guard.php';
+require_once __DIR__ . '/routing/Routing.php';
 
 class App
 {

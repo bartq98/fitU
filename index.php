@@ -1,6 +1,6 @@
 <?
 
-require __DIR__.'/src/models/App.php';
+require __DIR__ . '/src/App.php';
 
 App::run();
 
