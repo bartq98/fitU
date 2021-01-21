@@ -1,0 +1,60 @@
+
+
+.base-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 15% 85%;
+    grid-template-areas:
+        "header header"
+        "nav main";
+}
+
+
+header {
+    grid-area: header;
+    border: 2px solid black;
+    background: rgb(2,0,36);
+    background: linear-gradient(329deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 4%, rgba(9,9,121,1) 9%, rgba(0,212,255,1) 100%);
+    display: flex;
+}
+
+header img {
+    width: 20%;
+}
+
+header div {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: flex-end;
+    border: 2px solid wheat;
+}
+
+header div a {
+    border: 2px solid black;
+    height: 100%;
+}
+
+nav {
+    grid-area: nav;
+    background-color: blueviolet;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.navbutton {
+    border: 2px solid red;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+main {
+    grid-area: main;
+    background-color: yellow;
+}
