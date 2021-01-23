@@ -51,6 +51,8 @@ header>div {
     width: 20%;
     overflow: hidden;
     background-color: rgba(128, 128, 255, 0.15);
+    text-decoration: none;
+    color: black;
 }
 
 .headerbutton:hover {
@@ -81,6 +83,8 @@ nav {
     margin-right: 0.5em;
     overflow: hidden;
     background-color: rgba(0, 0, 255, 0.05);
+    text-decoration: none;
+    color: black;
 }
 
 .navbutton:hover {

@@ -44,6 +44,7 @@ class Routing {
         self::addRoute('login', 'SecurityController', 'loginPanel', 'GET', '');
         self::addRoute('login', 'SecurityController', 'login', 'POST', '');
         self::addRoute('meals', 'MealController', 'meals', 'GET', 'normal_user,admin');
+        self::addRoute('mealshistory', 'MealController', 'mealshistory', 'GET', 'normal_user,admin');
 
         foreach ($this->routes as $route) {
             if ($route->getUrl() == $action and $route->getMethod() == $_SERVER['REQUEST_METHOD'] and $this->checkAccessRules(Guard::getRole(), $route->getUserRole())) {

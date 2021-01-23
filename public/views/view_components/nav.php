@@ -1,27 +1,27 @@
 <nav>
-    <div class="navbutton" id="id-meal" data-href="/meals">
+    <a class="navbutton" id="id-meal" <?php echo "href=http://$_SERVER[HTTP_HOST]/meal"; ?>>
         <i class="fas fa-utensils fa-2x"></i>
         <?php echo "Dodaj posiłek"; ?>
-    </div>
+    </a>
 
-    <div class="navbutton">
-        <i class="fas fa-cookie-bite fa-2x" id="id-mealhistory" data-href="/mealhistory"></i>
+    <a class="navbutton"  <?php echo "href=http://$_SERVER[HTTP_HOST]/mealshistory"; ?>>
+        <i class="fas fa-cookie-bite fa-2x"></i>
         <?php echo "Historia posiłków"; ?>
-    </div>
+    </a>
 
-    <div class="navbutton">
-         <i class="fas fa-dumbbell fa-2x" id="id-training" data-href="/training"></i>
+    <a class="navbutton" <?php echo "href=http://$_SERVER[HTTP_HOST]/training"; ?>>
+         <i class="fas fa-dumbbell fa-2x" id="id-training"></i>
          <?php echo "Dodaj trening"; ?>
-    </div>
+    </a>
 
-    <div class="navbutton">
-        <i class="fas fa-running fa-2x" id="id-traininghistory" data-href="/traininghistory"></i>
+    <a class="navbutton" <?php echo "href=http://$_SERVER[HTTP_HOST]/traininghistory"; ?>>
+        <i class="fas fa-running fa-2x" id="id-traininghistory"></i>
         <?php echo "Historia treningów"; ?>
-    </div>
+    </a>
 
-    <div class="navbutton">
-         <i class="fas fa-weight fa-2x" id="id-weight" data-href="/weight"></i>
+    <a class="navbutton" <?php echo "href=http://$_SERVER[HTTP_HOST]/weight"; ?>>
+         <i class="fas fa-weight fa-2x" id="id-weight"></i>
          <?php echo "Waga"; ?>
-    </div>
+    </a>
 
 </nav>

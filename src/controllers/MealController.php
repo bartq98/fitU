@@ -11,6 +11,9 @@ class MealController extends AppController
         $this->render('meal', ["message" => "Meals"]);
     }
 
-
+    public function mealshistory()
+    {
+        $this->render('workout');
+    }
 
 }
