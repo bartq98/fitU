@@ -3,6 +3,7 @@
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/MealController.php';
+require_once 'src/controllers/WeightController.php';
 
 require_once 'Route.php';
 require_once 'RoutesCollector.php';
@@ -46,6 +47,7 @@ class Routing {
         self::addRoute('logout', 'SecurityController', 'logout', 'GET', 'normal_user,admin');
 
         self::addRoute('meals', 'MealController', 'meals', 'GET', 'normal_user,admin');
+        self::addRoute('weight', 'WeightController', 'weight', 'GET', 'normal_user,admin');
 
 
         foreach ($this->routes as $route) {

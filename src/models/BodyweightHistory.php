@@ -7,7 +7,6 @@ class BodyweightHistory
     private $id_user;
     private $weight;
     private $measured_at;
-    private $last_change;
 
     public function getId()
     {
@@ -47,16 +46,6 @@ class BodyweightHistory
     public function setMeasuredAt($measured_at): void
     {
         $this->measured_at = $measured_at;
-    }
-
-    public function getLastChange()
-    {
-        return $this->last_change;
-    }
-
-    public function setLastChange($last_change): void
-    {
-        $this->last_change = $last_change;
     }
 
 }

@@ -105,6 +105,15 @@ main {
     align-items: center;
 }
 
+.main-container {
+    width: 97%;
+    height: 95%;
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.90);
+    padding: 1em;
+    overflow: scroll;
+}
+
 @media screen and (max-device-width: 600px) {
     html {
         font-size: 30px;
