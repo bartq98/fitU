@@ -6,7 +6,7 @@
     <title>fitU - panel logowania</title>
 
     <link rel="stylesheet" href="/public/style/normalize.css">
-    <link rel="stylesheet" href="/public/style/style.css">
+    <link rel="stylesheet" href="/public/style/login.css">
 </head>
 <body>
     <div class="container">

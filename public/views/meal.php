@@ -6,6 +6,10 @@
 
     <link rel="stylesheet" href="/public/style/normalize.css">
     <link rel="stylesheet" href="/public/style/view_components.css">
+
+    <link rel="stylesheet" href="/public/style/meal.css">
+
+    <script src="../scripts/nav-buttons-listener.js" defer></script>
     <script src="https://kit.fontawesome.com/dae4b2440d.js" crossorigin="anonymous"></script>
 </head>
 
@@ -14,7 +18,7 @@
     <?php include("view_components/header.php"); ?>
     <?php include("view_components/nav.php"); ?>
     <main>
-        <div style="background-color: red">as</div>
+        <div class="main-container">as</div>
     </main>
 </div>
 </body>
