@@ -50,4 +50,10 @@ class SecurityController extends AppController {
         return $this->render('login');
     }
 
+    public function logout()
+    {
+        session_destroy();
+        return $this->render('login');
+    }
+
 }
