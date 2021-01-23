@@ -20,9 +20,11 @@
     <main>
         <div class="main-container">
             <?php
-                for($i = 0; $i < 10000; $i++) {
-                    echo "{$i} <br>";
-                }
+                 if(isset($weights)) {
+                        foreach ($weights as $message) {
+                            var_dump($message);
+                        }
+                    }
             ?>
         </div>
     </main>
