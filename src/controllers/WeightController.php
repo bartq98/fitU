@@ -14,9 +14,16 @@ class WeightController extends AppController
         $this->render('weight', ['weights' => [$wagi]]);
     }
 
-    public function getUserWeight($user_id)
+    public function getUserWeight()
     {
-        return 0;
+
+        $wr = new BodyweightRepository();
+        $wagi = $wr->getBodyweightHistoryJSON();
+
+        header('Content-type: application/json');
+        http_response_code(200);
+
+        echo json_encode($wagi);
     }
 
 }

@@ -49,7 +49,7 @@ class Routing {
         self::addRoute('meals', 'MealController', 'meals', 'GET', 'normal_user,admin');
         self::addRoute('weight', 'WeightController', 'weight', 'GET', 'normal_user,admin');
 
-        self::addRoute('get-weight', 'WeightController', 'getUserWeight', 'POST', 'normal_user,admin');
+        self::addRoute('get-weight', 'WeightController', 'getUserWeight', 'GET', 'normal_user,admin');
 
 
         foreach ($this->routes as $route) {
