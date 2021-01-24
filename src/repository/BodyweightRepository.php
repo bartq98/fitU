@@ -22,5 +22,18 @@ class BodyweightRepository extends Repository
 
     }
 
+    public function getBodyweightHistoryJSON(string $id_user)
+    {
+        // stmt states for statement
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.bodyweights_history WHERE id_user = :id_user 
+        ');
+
+        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return  $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 
 }

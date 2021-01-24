@@ -14,4 +14,9 @@ class WeightController extends AppController
         $this->render('weight', ['weights' => [$wagi]]);
     }
 
+    public function getUserWeight($user_id)
+    {
+        return 0;
+    }
+
 }
