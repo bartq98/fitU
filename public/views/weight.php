@@ -20,7 +20,9 @@
     <?php include("view_components/nav.php"); ?>
     <main>
         <div class="main-container">
-            <canvas id="chart"></canvas>
+            <canvas id="chart" height="50%" width="75%">
+                <p>Something went wrong on canvas, where chart was suppouse to appear</p>
+            </canvas>
             <p>Oto wykres</p>
         </div>
     </main>

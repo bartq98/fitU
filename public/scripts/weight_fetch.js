@@ -1,50 +1,72 @@
 const mainContainer = document.querySelector(".main-container");
 
+function formatDateFromPostgres(timestampz) {
+    return timestampz.substring(0, timestampz.length - 7);
+}
+
+function generateLabels(resource) {
+    to_return = [];
+    let len = resource.length;
+    for (var i = 0; i < len; i++) {
+        console.log(resource[i].x.getDate() + "/" + resource[i].x.getMonth() + 1);
+        to_return.push(resource[i].x.getDate() + "/" + resource[i].x.getMonth() + 1);
+    }
+    return to_return;
+}
+
+function generateValues(resource) {
+    to_return = [];
+    let len = resource.length;
+    for (var i = 0; i < len; i++) {
+        to_return.push(resource[i].y);
+    }
+    return to_return;
+}
+
+var bodyweightResource = [];
+
 fetch('http://localhost:8080/get-weight', {
         method: "GET",
         body: JSON.stringify()
     })
     .then(response => response.json())
     .then(function(response) {
-        console.log("Tutaj: ", response[1].measured_at.substring(0, response[1].measured_at.length -7));
-        dane = new Date(response[1].measured_at.substring(0, response[1].measured_at.length -7));
-        console.debug(dane);
-    });
-
-var ctx = document.getElementById('chart');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, -3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+        var len = response.length;
+        for (var i = 0; i < len; i++) {
+            fetchedDate = new Date(formatDateFromPostgres(response[i].measured_at));
+            bodyweightResource.push({x : fetchedDate, y : parseInt(response[i].weight)});
         }
-    }
+    }).then(() => {
+        console.debug(bodyweightResource);
+    }).then(() => {
+
+        dataDomain = generateLabels(bodyweightResource);
+        dataValues = generateValues(bodyweightResource);
+
+        var ctx = document.getElementById('chart');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                label: "Wartość Twojej wagi w kg w danym dniu",
+                labels: dataDomain,
+                data: dataValues
+            },
+        options: {
+            title: {
+                display: true,
+                text: "Wykres Twojej wagi na przestrzeni dni",
+
+            },
+            scales: {
+                xAxes: [{
+                    display: true
+                }],
+                yAxes: [{
+                    display: true
+                }]
+            }
+        }
+    });
 });
+
+
