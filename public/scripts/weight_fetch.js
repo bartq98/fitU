@@ -34,7 +34,7 @@ fetch('http://localhost:8080/get-weight', {
         var len = response.length;
         for (var i = 0; i < len; i++) {
             fetchedDate = new Date(formatDateFromPostgres(response[i].measured_at));
-            bodyweightResource.push({x : fetchedDate, y : parseInt(response[i].weight)});
+            bodyweightResource.push({x : fetchedDate, y : parseFloat(response[i].weight)});
         }
     }).then(() => {
         console.debug(bodyweightResource);
