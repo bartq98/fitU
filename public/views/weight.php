@@ -20,9 +20,8 @@
     <?php include("view_components/nav.php"); ?>
     <main>
         <div class="main-container">
-            <?php
-
-            ?>
+            <canvas id="chart"></canvas>
+            <p>Oto wykres</p>
         </div>
     </main>
 </div>
