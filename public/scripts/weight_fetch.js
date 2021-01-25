@@ -43,26 +43,47 @@ fetch('http://localhost:8080/get-weight', {
         dataDomain = generateLabels(bodyweightResource);
         dataValues = generateValues(bodyweightResource);
 
+        console.debug(dataValues);
+
         var ctx = document.getElementById('chart');
         var chart = new Chart(ctx, {
             type: 'line',
             data: {
-                label: "Wartość Twojej wagi w kg w danym dniu",
                 labels: dataDomain,
-                data: dataValues
+                datasets: [{
+                    label: "Waga w kg w danym dniu",
+                    data: dataValues
+                }]
             },
         options: {
+            responsive: true,
             title: {
                 display: true,
                 text: "Wykres Twojej wagi na przestrzeni dni",
 
             },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
             scales: {
                 xAxes: [{
-                    display: true
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Dzień pomiaru'
+                    }
                 }],
                 yAxes: [{
-                    display: true
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Waga w kg'
+                    }
                 }]
             }
         }
