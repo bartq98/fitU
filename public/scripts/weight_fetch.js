@@ -57,6 +57,7 @@ fetch('http://localhost:8080/get-weight', {
             },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             title: {
                 display: true,
                 text: "Wykres Twojej wagi na przestrzeni dni",
@@ -84,10 +85,10 @@ fetch('http://localhost:8080/get-weight', {
                         display: true,
                         labelString: 'Waga w kg'
                     }
-                }]
+                }],
             }
         }
     });
 });
 
-
+Chart.defaults.global.defaultFontSize = 17;
