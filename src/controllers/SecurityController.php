@@ -11,7 +11,7 @@ class SecurityController extends AppController {
 
         if (Guard::isAuth()) {
             $url = "http://$_SERVER[HTTP_HOST]";
-            header("Location: {$url}/workout");
+            header("Location: {$url}/default");
         }
 
         $userRepository = new UserRepository();

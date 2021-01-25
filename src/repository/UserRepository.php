@@ -21,4 +21,20 @@ class UserRepository extends Repository
         return $user;
 
     }
+
+    public function getAllUsers()
+    {
+        // stmt states for statement
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users
+        ');
+
+        $stmt->execute();
+
+        $user = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $user;
+
+    }
+
 }

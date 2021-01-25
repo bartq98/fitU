@@ -4,6 +4,7 @@ require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/MealController.php';
 require_once 'src/controllers/WeightController.php';
+require_once 'src/controllers/AdminController.php';
 
 require_once 'Route.php';
 require_once 'RoutesCollector.php';
@@ -39,28 +40,29 @@ class Routing {
 
     public function run($url, $isUserAuth) {
 
-        $action = explode("/", $url)[0];
+        $givenUrl = explode("/", $url)[0];
 
         self::addRoute('', 'SecurityController', 'loginPanel', 'GET', '');
         self::addRoute('login', 'SecurityController', 'loginPanel', 'GET', '');
         self::addRoute('login', 'SecurityController', 'login', 'POST', '');
         self::addRoute('logout', 'SecurityController', 'logout', 'GET', '');
 
-        self::addRoute('default', 'MealController', 'meals', 'GET', 'normal_user,admin');
+        self::addRoute('default', 'MealController', 'meals', 'GET', 'normal_user');
+        self::addRoute('default', 'AdminController', 'adminPanel', 'GET', 'admin');
         self::addRoute('default', 'SecurityController', 'logout', 'GET', 'not_logged_user');
 
-        self::addRoute('meals', 'MealController', 'meals', 'GET', 'normal_user,admin');
-        self::addRoute('weight', 'WeightController', 'weight', 'GET', 'normal_user,admin');
+        self::addRoute('meals', 'MealController', 'meals', 'GET', 'normal_user');
+        self::addRoute('weight', 'WeightController', 'weight', 'GET', 'normal_user');
 
         self::addRoute('get-weight', 'WeightController', 'getUserWeight', 'GET', 'normal_user,admin');
 
 
         foreach ($this->routes as $route) {
-            if ($route->getUrl() == $action and $route->getMethod() == $_SERVER['REQUEST_METHOD'] and $this->checkAccessRules(Guard::getRole(), $route->getUserRole())) {
+            if ($route->getUrl() == $givenUrl and $route->getMethod() == $_SERVER['REQUEST_METHOD'] and $this->checkAccessRules(Guard::getRole(), $route->getUserRole())) {
 
                 $controller = $route->getController();
                 $object = new $controller;
-                $action = $route->getAction() ?: 'login';
+                $action = $route->getAction();
                 $object->$action();
                 return;
             }
