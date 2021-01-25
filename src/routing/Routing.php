@@ -57,6 +57,9 @@ class Routing {
         self::addRoute('get-weight', 'WeightController', 'getUserWeight', 'GET', 'normal_user,admin');
 
 
+        self::addRoute('userinfo', 'AdminController', 'info', 'GET', 'admin');
+
+
         foreach ($this->routes as $route) {
             if ($route->getUrl() == $givenUrl and $route->getMethod() == $_SERVER['REQUEST_METHOD'] and $this->checkAccessRules(Guard::getRole(), $route->getUserRole())) {
 
