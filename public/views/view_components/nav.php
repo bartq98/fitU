@@ -1,5 +1,5 @@
 <nav>
-    <a class="navbutton" id="id-meal" <?php echo "href=http://$_SERVER[HTTP_HOST]/meal"; ?>>
+    <a class="navbutton" id="id-meal" <?php echo "href=http://$_SERVER[HTTP_HOST]/meals"; ?>>
         <i class="fas fa-utensils fa-2x"></i>
         <?php echo "Dodaj posiłek"; ?>
     </a>

@@ -46,6 +46,9 @@ class Routing {
         self::addRoute('login', 'SecurityController', 'login', 'POST', '');
         self::addRoute('logout', 'SecurityController', 'logout', 'GET', '');
 
+        self::addRoute('default', 'MealController', 'meals', 'GET', 'normal_user,admin');
+        self::addRoute('default', 'SecurityController', 'logout', 'GET', 'not_logged_user');
+
         self::addRoute('meals', 'MealController', 'meals', 'GET', 'normal_user,admin');
         self::addRoute('weight', 'WeightController', 'weight', 'GET', 'normal_user,admin');
 
@@ -62,8 +65,8 @@ class Routing {
                 return;
             }
         }
-        $controller = new SecurityController();
-        $controller->loginPanel();
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/default");
     }
 
 }
