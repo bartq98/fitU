@@ -11,14 +11,14 @@ class AdminController extends AppController
     {
         $ur = new UserRepository();
         $users = $ur->getAllUsers();
-        $this->render('admin', ["messages" => Guard::getId()]);
+        $this->render('admin');
     }
 
     public function info()
     {
         $ur = new UserRepository();
         $adminInfo = $ur->getUserInfoByID(Guard::getId());
-        $this->render('admin', ["messages" => $adminInfo]);
+        $this->render('admin');
     }
 
     public function users()
