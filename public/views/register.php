@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="/public/style/normalize.css">
     <link rel="stylesheet" href="/public/style/login.css">
+    <link rel="stylesheet" href="/public/style/register.css">
 </head>
 <body>
 <div class="container">
@@ -17,7 +18,7 @@
         <form class="login" action="register" method="POST">
             <div>
                 <?php if(isset($messages)) {
-                    echo $messages;
+                    echo "<p>$messages</p>";
                 }
                 ?>
             </div>

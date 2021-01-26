@@ -14,7 +14,7 @@ function generateLabels(resource) {
 }
 
 function generateValues(resource) {
-    to_return = [];
+    let to_return = [];
     let len = resource.length;
     for (var i = 0; i < len; i++) {
         to_return.push(resource[i].y);

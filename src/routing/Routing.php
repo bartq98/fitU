@@ -61,6 +61,7 @@ class Routing {
 
         self::addRoute('get-weight', 'WeightController', 'getUserWeight', 'GET', 'normal_user,admin');
 
+        self::addRoute('users', 'AdminController', 'users', 'GET', 'admin');
 
         self::addRoute('userinfo', 'AdminController', 'info', 'GET', 'admin');
         self::addRoute('userinfo', 'InfoController', 'info', 'GET', 'normal_user');
