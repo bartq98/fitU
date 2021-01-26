@@ -5,7 +5,6 @@ class User {
     private $id;
     private $email;
     private $password;
-    private $enabled;
     private $created_at;
     private $id_user_details;
     private $role;
@@ -38,16 +37,6 @@ class User {
     public function setPassword($password): void
     {
         $this->password = $password;
-    }
-
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
-
-    public function setEnabled($enabled): void
-    {
-        $this->enabled = $enabled;
     }
 
     public function getCreatedAt()

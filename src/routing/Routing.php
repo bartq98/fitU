@@ -5,6 +5,7 @@ require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/MealController.php';
 require_once 'src/controllers/WeightController.php';
 require_once 'src/controllers/AdminController.php';
+require_once 'src/controllers/InfoController.php';
 
 require_once 'Route.php';
 require_once 'RoutesCollector.php';
@@ -62,6 +63,7 @@ class Routing {
 
 
         self::addRoute('userinfo', 'AdminController', 'info', 'GET', 'admin');
+        self::addRoute('userinfo', 'InfoController', 'info', 'GET', 'normal_user');
 
 
         foreach ($this->routes as $route) {
