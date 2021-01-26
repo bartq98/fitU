@@ -5,10 +5,9 @@ function formatDateFromPostgres(timestampz) {
 }
 
 function generateLabels(resource) {
-    to_return = [];
+    let to_return = [];
     let len = resource.length;
     for (var i = 0; i < len; i++) {
-        console.log(resource[i].x.getDate() + "/" + resource[i].x.getMonth() + 1);
         to_return.push(resource[i].x.getDate() + "/" + resource[i].x.getMonth() + 1);
     }
     return to_return;

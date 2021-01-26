@@ -48,7 +48,7 @@ class BodyweightRepository extends Repository
         $stmt->bindParam(':id_user', $loggedUserID, PDO::PARAM_STR);
         $stmt->bindParam(':weight', $weight, PDO::PARAM_STR);
         $stmt->execute();
-    }
 
+    }
 
 }
