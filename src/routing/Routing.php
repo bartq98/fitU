@@ -48,7 +48,7 @@ class Routing {
         self::addRoute('logout', 'SecurityController', 'logout', 'GET', '');
 
         self::addRoute('register', 'SecurityController', 'registerPanel', 'GET', 'not_logged_user');
-        self::addRoute('register', 'SecurityController', 'register', 'POST', '');
+        self::addRoute('register', 'SecurityController', 'register', 'POST', 'not_logged_user');
 
         self::addRoute('default', 'MealController', 'meals', 'GET', 'normal_user');
         self::addRoute('default', 'AdminController', 'adminPanel', 'GET', 'admin');

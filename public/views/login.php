@@ -23,9 +23,12 @@
                     }
                     ?>
                 </div>
-                <input name="email" type="text" placeholder="your@email.com">
-                <input name="password" type="password" placeholder="tu wpisz swoje hasło">
-                <button type="submit">Login</button>
+                <input name="email" type="text" placeholder="Tutaj wpisz swój adres e-mail">
+                <input name="password" type="password" placeholder="Wpisz tutaj swoje hasło">
+                <div class="button-container">
+                    <button type="submit">Zaloguj</button>
+                    <a <?php echo "href=http://$_SERVER[HTTP_HOST]/register"; ?>>Zarejestruj</a>
+                </div>
             </form>
         </div>
     </div>
