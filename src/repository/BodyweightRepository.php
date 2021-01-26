@@ -27,7 +27,7 @@ class BodyweightRepository extends Repository
     {
         // stmt states for statement
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.bodyweights_history WHERE id_user = :id_user 
+            SELECT * FROM public.bodyweights_history WHERE id_user = :id_user ORDER BY measured_at ASC
         ');
 
         $loggedUserID = strval(Guard::getId());
@@ -36,6 +36,18 @@ class BodyweightRepository extends Repository
         $stmt->execute();
 
         return  $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function addWeight($loggedUserID, $weight)
+    {
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO public.bodyweights_history (id_user, weight)
+            VALUES (:id_user, :weight);
+        ');
+
+        $stmt->bindParam(':id_user', $loggedUserID, PDO::PARAM_STR);
+        $stmt->bindParam(':weight', $weight, PDO::PARAM_STR);
+        $stmt->execute();
     }
 
 

@@ -26,4 +26,16 @@ class WeightController extends AppController
         echo json_encode($wagi);
     }
 
+    public function addUserWeight()
+    {
+        $userId = Guard::getId();
+        $weightToAdd = $_POST['weight'];
+        $wr = new BodyweightRepository();
+        $wr->addWeight($userId, $weightToAdd);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/weight");
+
+    }
+
 }

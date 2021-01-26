@@ -23,7 +23,11 @@
             <canvas id="chart" height="50%" width="75%">
                 <p>Something went wrong on canvas, where chart was suppouse to appear</p>
             </canvas>
-            <p>Oto wykres</p>
+            <form class="weight" action="weight" method="POST">
+                <p>Dodaj wagę:</p>
+                <input name="weight" type="number" step="0.1">
+                <button type="submit">Dodaj</button>
+            </form>
         </div>
     </main>
 </div>
