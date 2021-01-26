@@ -37,7 +37,7 @@ class SecurityController extends AppController {
         Guard::auth($user->getId(), $user->getRole());
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/meals");
+        header("Location: {$url}/default");
 
     }
 
@@ -45,10 +45,43 @@ class SecurityController extends AppController {
     {
         if (Guard::isAuth()) {
             $url = "http://$_SERVER[HTTP_HOST]";
-            header("Location: {$url}/meals");
+            header("Location: {$url}/default");
         }
         return $this->render('login');
     }
+
+    public function registerPanel()
+    {
+        if (Guard::isAuth()) {
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/default");
+        }
+        return $this->render('register');
+    }
+
+    public function register()
+    {
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        $ur = new UserRepository();
+        $userWithEmail = $ur->getUser($email);
+
+        if($userWithEmail) {
+            return $this->render('register', ["messages" => "User with provided email exists. Try another mail"]);
+        } else {
+            $ur->addUser($name, $surname, $email, $password);
+            $user = $ur->getUser($email);
+            Guard::auth($user->getId(), $user->getRole());
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/default");
+        }
+
+    }
+
+
 
     public function logout()
     {
