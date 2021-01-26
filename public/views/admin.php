@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="/public/style/normalize.css">
     <link rel="stylesheet" href="/public/style/view_components.css">
+    <link rel="stylesheet" href="/public/style/admin.css">
     <script src="https://kit.fontawesome.com/dae4b2440d.js" crossorigin="anonymous"></script>
 
     <!-- Chart.js for generating beautfilu charts  -->
@@ -18,11 +19,19 @@
     <?php include("view_components/navAdmin.php"); ?>
     <main>
         <div class="main-container">
+            <table>
             <?php if(isset($messages)) {
-                var_dump($messages);
+                echo "<tr><th>Imię</th> <th>Nazwisko</th> <th>E-mail</th></tr>";
+                foreach ($messages as $message) {
+                    echo "<tr>";
+                    echo "<td>{$message['name']}</td>";
+                    echo "<td>{$message['surname']}</td>";
+                    echo "<td>{$message['email']}</td>";
+                    echo "</tr>";
+                }
             }
             ?>
-
+            </table>
         </div>
     </main>
 </div>

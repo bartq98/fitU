@@ -3,6 +3,7 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__.'/../repository/AdminRepository.php';
 
 class AdminController extends AppController
 {
@@ -20,5 +21,11 @@ class AdminController extends AppController
         $this->render('admin', ["messages" => $adminInfo]);
     }
 
+    public function users()
+    {
+        $ar = new AdminRepository();
+        $users = $ar->getUsers();
+        $this->render('admin', ["messages" => $users]);
+    }
 
 }
