@@ -7,7 +7,7 @@ function formatDateFromPostgres(timestampz) {
 function generateLabels(resource) {
     let to_return = [];
     let len = resource.length;
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
         to_return.push(resource[i].x.getDate() + "/" + resource[i].x.getMonth() + 1);
     }
     return to_return;
@@ -16,13 +16,11 @@ function generateLabels(resource) {
 function generateValues(resource) {
     let to_return = [];
     let len = resource.length;
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
         to_return.push(resource[i].y);
     }
     return to_return;
 }
-
-var bodyweightResource = [];
 
 fetch('http://localhost:8080/get-weight', {
         method: "GET",
@@ -30,22 +28,22 @@ fetch('http://localhost:8080/get-weight', {
     })
     .then(response => response.json())
     .then(function(response) {
-        var len = response.length;
-        for (var i = 0; i < len; i++) {
+        let bodyweightResource = [];
+        let len = response.length;
+        for (let i = 0; i < len; i++) {
             fetchedDate = new Date(formatDateFromPostgres(response[i].measured_at));
             bodyweightResource.push({x : fetchedDate, y : parseFloat(response[i].weight)});
         }
-    }).then(() => {
-        console.debug(bodyweightResource);
-    }).then(() => {
+
+
 
         dataDomain = generateLabels(bodyweightResource);
         dataValues = generateValues(bodyweightResource);
 
         console.debug(dataValues);
 
-        var ctx = document.getElementById('chart');
-        var chart = new Chart(ctx, {
+        let ctx = document.getElementById('chart');
+        let chart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: dataDomain,
