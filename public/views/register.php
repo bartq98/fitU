@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/public/style/normalize.css">
     <link rel="stylesheet" href="/public/style/login.css">
     <link rel="stylesheet" href="/public/style/register.css">
+
+    <script type="text/javascript" src="/public/scripts/loginValidation.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -16,7 +18,7 @@
     </div>
     <div class="login-container">
         <form class="login" action="register" method="POST">
-            <div>
+            <div class="form-message">
                 <?php if(isset($messages)) {
                     echo "<p>$messages</p>";
                 }

@@ -4,6 +4,14 @@ input {
     width: 33%;
 }
 
+.invalid {
+    border: 5px solid red !important;
+}
+
+.valid {
+    border: 5px solid green !important;
+}
+
 .button-container {
     display: flex;
     flex-direction: row;
