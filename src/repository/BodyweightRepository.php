@@ -49,6 +49,22 @@ class BodyweightRepository extends Repository
         $stmt->bindParam(':weight', $weight, PDO::PARAM_STR);
         $stmt->execute();
 
+        $stmt = $this->database->connect()->prepare('
+            UPDATE users_details
+            SET calorie_intake = :intake
+            FROM users
+            WHERE users.id_user_details = users_details.id 
+              AND users.id = :id_user
+        ');
+
+        # for male with 180cm and 25 y.o
+        $intake = $weight * 10 + (6.25 * 180) - (5 * 25) + 5;
+
+        $stmt->bindParam(':id_user', $loggedUserID, PDO::PARAM_STR);
+        $stmt->bindParam(':intake', $intake, PDO::PARAM_STR);
+        $stmt->execute();
+
+
     }
 
 }
