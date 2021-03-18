@@ -28,11 +28,7 @@ class App
 
     private static function isCurrentUserAuth() : bool
     {
-        if (Guard::isAuth()) {
-            return true;
-        } else {
-            return false;
-        }
+        return Guard::isAuth();
     }
 
 
