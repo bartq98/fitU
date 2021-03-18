@@ -28,15 +28,12 @@ class Routing {
 
     private function checkAccessRules($userRule, $routeRule)
     {
-        if (!$routeRule)  {
+        if (!$routeRule) {
             return TRUE;
         }
         $rules = explode(',', $routeRule);
-        if (in_array($userRule, $rules)) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
+        return in_array($userRule, $rules);
+
     }
 
     public function run($url, $isUserAuth) {

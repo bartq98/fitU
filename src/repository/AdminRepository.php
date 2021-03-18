@@ -7,7 +7,6 @@ class AdminRepository extends Repository
 {
     public function getUsers()
     {
-        // stmt states for statement
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.userdetailswithmails;
         ');

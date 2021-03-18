@@ -14,7 +14,6 @@ class App
     {
         $app = new App();
 
-        // check if session not exists
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -30,6 +29,5 @@ class App
     {
         return Guard::isAuth();
     }
-
 
 }
